@@ -1,0 +1,22 @@
+{
+  "name": "express-html",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "Expenditure Data Visualization Application ( HackIllinois Spring 16 )",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tatparya/Xpense.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tatparya/Xpense/issues"
+  },
+  "homepage": "https://github.com/tatparya/Xpense#readme"
+}
