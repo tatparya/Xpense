@@ -17,4 +17,6 @@ app.use( express.static(path.join(__dirname, 'public' )));
 app.use( '/', home );
 app.use( '/main', main );
 
+app.use( '/send', sendText );
+
 module.exports = app;
