@@ -1,0 +1,19 @@
+{
+    "_id": "56c96f247742719f0e4dd538",
+    "first_name": "Tatparya",
+    "last_name": "Shankar",
+    "address": {
+      "street_number": "473",
+      "street_name": "Meredith Hall",
+      "city": "West Lafayette",
+      "state": "IN",
+      "zip": "47906"
+    }
+}
+
+"_id": "56c974f67742719f0e4dd583",
+    "type": "Credit Card",
+    "nickname": "Tatparya's account",
+    "rewards": 0,
+    "balance": 1000,
+    "customer_id": "56c96f247742719f0e4dd538"

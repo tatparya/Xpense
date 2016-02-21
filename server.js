@@ -1,49 +1,50 @@
-var http = require('http');
-var express = require ('express');
-var app = express();
-var port = process.env.PORT || 1337;
+var app     = require( './mainApp' );
+var http    = require( 'http' );
 
-var request = require( 'superagent' );
 
-app.use( express.static( __dirname + '/views' ) );
+//  Get port from environment and store in Express
+var port = process.env.PORT || 3000;
+app.set( 'port', port );
 
-//app.use( express.static( __dirname + '/script' ) );
+//  Create HTTP server
+var server = http.createServer( app );
 
-//  return Index file
-app.get( '/', function( request, result ){
-    result.sendFile( 'index.html' );
-});
+//  Listen on provided port
+server.listen( port );
+server.on( 'error', onError );
+server.on( 'listening', onListening );
 
-//  Get Started
+function onError( error ){
+    if( error.syscall !== 'listen' ){
+        throw error;
+    }
 
-app.get( '/get-started', function(request, result ){
-    result.sendFile( 'signup.html', {root: __dirname + '/views'} );
-});
+    var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
 
-app.get( '/mainapp', function(request, result ){
+    //  Handle specific listen error with friendly messages
+    switch( error.code ){
+        case 'EACCES':
+            console.error( bind + ' requires elevated privileges' );
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error( bind + ' is already in user' );
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
 
-    //  Get values from API
-    result.sendFile( 'mainapp.html', {root: __dirname + '/views'} );
+function onListening( ){
+    console.log( 'Server listening on port : ', port );
+}
 
-    });
-
-//  Get all accounts
-request.get( 'http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key=9bb2ac5a95d30884f1c5eefebf12ca52' )
-    .end( function( err, result ){
-    //console.log( result.status );
-    //console.log( result.body );
-});
-
-//  listen to port request
-app.listen( port );
-
-// http.createServer(function(request, response) {
-//
-//     // Send the HTTP header
-//     // HTTP Status: 200 : OK
-//     // Content Type: text/plain
-//     response.writeHead(200, { 'content-Type':'text/plain' });
-//     response.end( 'Hello World!!\n' );
-// }).listen(port);
-
-console.log( 'Server running at port ', port );
+//  404 response
+function send404Response( response ){
+    response.writeHead(404, {"Content-Type": "text/plain"} );
+    response.write( "Error 404: Page not found!" );
+    response.end();
+}
