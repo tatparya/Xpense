@@ -6,6 +6,7 @@ var bodyParser      = require( 'body-parser' );
 //  Set route paths
 var home    = require( './routes/index' );
 var main    = require( './routes/main' );
+var send    = require( './routes/send' );
 
 var app = express();
 
@@ -17,6 +18,6 @@ app.use( express.static(path.join(__dirname, 'public' )));
 app.use( '/', home );
 app.use( '/main', main );
 
-app.use( '/send', sendText );
+app.use( '/send', send );
 
 module.exports = app;
