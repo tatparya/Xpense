@@ -3,8 +3,6 @@ var router = express.Router();
 
 var request = require('superagent');
 
-var str = '';
-
 // Get home Page
 router.get( '/', function( reg, result, next ){
 
