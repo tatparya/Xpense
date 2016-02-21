@@ -6,7 +6,7 @@
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-
+        <link rel="stylesheet" href="css/app.css">
         <title>
             Xpense | App
         </title>
@@ -15,24 +15,62 @@
     <!-- BODY -->
     <body>
         <!-- NAV BAR -->
-        <nav class="light-blue" role="navigation">
+        <nav class="blue" role="navigation">
             <div class="nav-wrapper container">
                 <a href="/" id="logo-container" class="brand-logo">Xpense</a>
             </div>
         </nav>
         <!-- NAV ENDS HERE -->
-        <div class="container">
-            <div class="row" >
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-content" >
-                            <h2>
-                                Welcome
-                            </h2>
-                            <p>
-                                Hope you are having a great time using our services!
-                            </p>
-                        </div>
+        <div class="row" >
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content" id="accounts" >
+                        <h2>
+                            Accounts
+                        </h2>
+                        <ul class="collection">
+                        </ul>
+                        <ul class="accounts collection">
+                        </ul>
+
+                        <ul class="collection">
+                            <div class="collection-item">
+                                    <h5>Savings Progess</h5>
+                                    <svg id="fillgauge1" width="200px" height="200px"></svg>
+                            </div>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content" id="invest" >
+                        <h2>
+                            Investments
+                        </h2><ul class="collection">
+                        </ul>
+                        <ul class="visualization">
+                            <form action="calculate">
+                                <p class="range-field">
+                                    <label for="investmentRange">Investment Amount</label>
+                                    <input type="range" id="investment" min="0" max="2500"/>
+                                </p>
+                                <label for="time">Investment Time Period</label>
+                                <div class="row center" id="time">
+                                    <input value="1" name="group1" class="with-gap" type="radio" id="val1">
+                                    <label for="val1">6 months</label>
+                                    <input value="2" name="group1" class="with-gap" type="radio" id="val2">
+                                    <label for="val2">1 year</label>
+                                    <input value="3" name="group1" class="with-gap" type="radio" id="val3">
+                                    <label for="val3">5 years</label>
+                                </div>
+                                <label for="timeGraph">Net Profit</label>
+                                <div class="invGraph" id="timeGraph">
+                                </div>
+                            </form>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -43,5 +81,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
         <script src="js/mainApplication.js"></script>
+        <script src="js/liquidFillGauge.js"></script>
+        <script src="js/investmentVisualization.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script>
+            calculate();
+            graph();
+        </script>
     </body>
 </html>

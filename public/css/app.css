@@ -1,0 +1,20 @@
+rect{
+    fill: #9ccc65;
+}
+
+h2{
+    padding:10px;
+}
+
+#svText{
+    font-weight: bold;
+    fill: #1b5e20;
+}
+
+.card{
+    margin-top:20px;
+}
+
+svg{
+    margin:25px;
+}
