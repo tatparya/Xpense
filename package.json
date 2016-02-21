@@ -2,7 +2,9 @@
   "name": "express-html",
   "version": "0.0.1",
   "dependencies": {
-    "express": "^4.13.4"
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "superagent": "^1.7.2"
   },
   "scripts": {
     "start": "node server.js"
