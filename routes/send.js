@@ -18,7 +18,7 @@ var sendMessage = function(){
 // Get home Page
 
 router.get( '/', function( reg, res, next ){
-    sendMessage();
+    //sendMessage();
 
     res.render( 'main' );
 });
